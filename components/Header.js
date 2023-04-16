@@ -31,14 +31,14 @@ export default function Header() {
         <nav>
           <ul className='flex space-x-4'>
             <li>
-              <Link href='/login'>
+              <Link href='/'>
                 <span className='text-gray-700 hover:text-gray-900'>
                   Log in
                 </span>
               </Link>
             </li>
             <li>
-              <Link href='/signup'>
+              <Link href='/'>
                 <span className='text-gray-700 hover:text-gray-900'>
                   Sign up
                 </span>
@@ -46,7 +46,7 @@ export default function Header() {
             </li>
 
             <li>
-              <Link href='/cart'>
+              <Link href='/'>
                 <IoCart size={22} />
               </Link>
             </li>
