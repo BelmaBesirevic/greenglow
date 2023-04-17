@@ -20,7 +20,7 @@ export default function Contact() {
   const onSubmitForm = async (e) => {
     e.preventDefault()
 
-    if (inputs.name && inputs.email && inputs.message) {
+    if (inputs.name && inputs.email && inputs.subject && inputs.message) {
       setForm({ state: 'loading' })
       try {
         const res = await fetch(`api/contact`, {
