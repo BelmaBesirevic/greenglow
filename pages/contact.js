@@ -60,50 +60,96 @@ export default function Contact() {
     }
   }
   return (
-    <div>
+    <div className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-2/3 mx-auto my-10'>
       <form onSubmit={(e) => onSubmitForm(e)}>
-        <input
-          id='name'
-          type='text'
-          value={inputs.name}
-          onChange={handleChange}
-          placeholder='Name'
-          required
-        />
-        <input
-          id='email'
-          type='email'
-          value={inputs.email}
-          onChange={handleChange}
-          placeholder='Email'
-          required
-        />
-        <input
-          id='subject'
-          type='text'
-          value={inputs.subject}
-          onChange={handleChange}
-          placeholder='Subject'
-          required
-        />
-        <textarea
-          id='message'
-          type='text'
-          value={inputs.message}
-          onChange={handleChange}
-          placeholder='Message'
-          rows='5'
-          required
-        />
-
-        <input type='submit' />
-        {form.state === 'loading' ? (
-          <div>Sending....</div>
-        ) : form.state === 'error' ? (
-          <div>{form.message}</div>
-        ) : (
-          form.state === 'success' && <div>Sent successfully</div>
-        )}
+        <div className='mb-4'>
+          <label
+            className='block text-gray-700 text-sm font-bold mb-2'
+            htmlFor='name'
+          >
+            Name
+          </label>
+          <input
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='name'
+            type='text'
+            value={inputs.name}
+            onChange={handleChange}
+            placeholder='Name'
+            required
+          />
+        </div>
+        <div className='mb-4'>
+          <label
+            className='block text-gray-700 text-sm font-bold mb-2'
+            htmlFor='email'
+          >
+            Email
+          </label>
+          <input
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='email'
+            type='email'
+            value={inputs.email}
+            onChange={handleChange}
+            placeholder='Email'
+            required
+          />
+        </div>
+        <div className='mb-4'>
+          <label
+            className='block text-gray-700 text-sm font-bold mb-2'
+            htmlFor='subject'
+          >
+            Subject
+          </label>
+          <input
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='subject'
+            type='text'
+            value={inputs.subject}
+            onChange={handleChange}
+            placeholder='Subject'
+            required
+          />
+        </div>
+        <div className='mb-6'>
+          <label
+            className='block text-gray-700 text-sm font-bold mb-2'
+            htmlFor='message'
+          >
+            Message
+          </label>
+          <textarea
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='message'
+            type='text'
+            value={inputs.message}
+            onChange={handleChange}
+            placeholder='Message'
+            rows='5'
+            required
+          />
+        </div>
+        <div className='flex items-center justify-between'>
+          <button
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+            type='submit'
+          >
+            Submit
+          </button>
+          {form.state === 'loading' ? (
+            <div className='text-gray-600 text-sm font-bold'>Sending...</div>
+          ) : form.state === 'error' ? (
+            <div className='text-red-600 text-sm font-bold'>{form.message}</div>
+          ) : (
+            form.state === 'success' && (
+              <div className='text-green-600 text-sm font-bold'>
+                Sent successfully
+              </div>
+            )
+          )}
+        </div>
       </form>
     </div>
   )
